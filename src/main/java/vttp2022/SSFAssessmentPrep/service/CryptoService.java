@@ -22,10 +22,10 @@ public class CryptoService {
     @Value("${crypto_api_key}")
     private String apiKey;
 
-    private static String URL = "https://min-api.cryptocompare.com/data/price";
+    private static String URL = "https://min-api.cryptocompare.com/data/pricemulti";
 
     public Optional<Crypto> convertCrypto(Crypto Req){
-        String toSendURL = UriComponentsBuilder.fromUriString(URL).queryParam("fsym", Req.getCryptoString())
+        String toSendURL = UriComponentsBuilder.fromUriString(URL).queryParam("fsyms", Req.getCryptoString())
                                                 .queryParam("tsyms", Req.getCurrencyString())
                                                 .queryParam("api_key", apiKey)
                                                 .toUriString();
